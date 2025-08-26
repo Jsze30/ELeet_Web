@@ -1,3 +1,19 @@
+:root {
+  /* Background colors */
+  --bg-primary: hsl(0, 0%, 0%);
+  --bg-secondary: hsl(0, 0%, 5%);
+  --bg-tertiary: hsl(0, 0%, 10%);
+  
+  /* Text colors */
+  --text-primary: hsl(0, 0%, 95%);
+  --text-secondary: hsl(0, 0%, 70%);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
 .App {
   text-align: center;
 }
@@ -14,14 +30,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--bg-primary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text-primary);
 }
 
 .App-link {
@@ -35,4 +51,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Card styling */
+.card-bg {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+}
+
+/* Button styling */
+.btn-primary {
+  background: linear-gradient(to right, #3b82f6, #14b8a6);
+  color: var(--text-primary);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* Text styling */
+.text-gradient {
+  background: linear-gradient(to right, #3b82f6, #14b8a6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
 }
