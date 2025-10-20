@@ -1,21 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ChevronDown, Mic, Upload, Copy, Download, Settings } from "lucide-react";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/clerk-react';
+import { RotatingText } from '@/components/ui/shadcn-io/rotating-text';
+
+
+
+
 
 export default function Home() {
-  const [selectedLanguage, setSelectedLanguage] = useState("English");
-  
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
       {/* Navbar/Header */}
@@ -28,12 +20,21 @@ export default function Home() {
           </div>
           
           <div className="flex items-center gap-2">
-            <Button variant="ghost" className="text-[hsl(0,0%,95%)] hover:bg-[hsl(0,0%,95%)]">
-              Log In
-            </Button>
-            <Button className="bg-orange-500 hover:opacity-90 text-black">
-              Sign Up
-            </Button>
+            <SignedOut>
+              <SignInButton>
+                <Button variant="ghost" className="text-[hsl(0,0%,95%)] hover:bg-[hsl(0,0%,95%)]">
+                  Log In
+                </Button>
+              </SignInButton>
+              <SignUpButton>
+                <Button className="bg-purple-500 hover:bg-purple-600 text-black">
+                  Sign Up
+                </Button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
           </div>
         </div>
       </header>
@@ -42,7 +43,15 @@ export default function Home() {
         {/* Hero Section */}
         <div className="flex flex-col items-center justify-center text-center space-y-8 my-12">
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-orange-400 to-purple-400 text-transparent bg-clip-text">
-            The AI platform for<br />interview preparation
+            Land your next 
+            <RotatingText
+              containerClassName="inline-block px-3 align-text-bottom min-w-[250px] text-left"
+              className="text-gray-100"
+              text={["Google", "Meta", "Netflix", "Amazon", "Apple", "Tesla", "Nvidia", "Stripe", "Airbnb"]}
+              duration={3000}
+              y={50}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            />  <br/> offer with AI interviews
           </h1>
           <p className="text-xl text-[hsl(0,0%,70%)] max-w-2xl">
             ELeet's interview AI platform provides automated interview practice, real-time feedback, and personalized coaching for technical interviews.
@@ -53,12 +62,16 @@ export default function Home() {
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <Button className="bg-orange-500 hover:opacity-90 text-black">
+              <Button className="bg-purple-500 hover:bg-purple-600 text-black">
                 Get The Extension
               </Button>
             </a>
-            <Button variant="ghost" className="text-[hsl(0,0%,95%)] hover:bg-[hsl(0,0%,95%)]">
-              Learn More
+            <Button
+              variant="ghost"
+              className="text-[hsl(0,0%,95%)] hover:bg-[hsl(0,0%,95%)]"
+              onClick={() => window.open('https://discord.gg/gEnunRG3uF', '_blank', 'noopener noreferrer')}
+            >
+              Join Our Discord
             </Button>
           </div>
         </div>
