@@ -2,9 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/clerk-react';
 import { RotatingText } from '@/components/ui/shadcn-io/rotating-text';
-
-
-
+// import TypingText from '@/components/ui/shadcn-io/typing-text';
 
 
 export default function Home() {
@@ -42,19 +40,29 @@ export default function Home() {
       <div className="container mx-auto px-4 py-12">        
         {/* Hero Section */}
         <div className="flex flex-col items-center justify-center text-center space-y-8 my-12">
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-orange-400 to-purple-400 text-transparent bg-clip-text">
-            Land your next 
-            <RotatingText
-              containerClassName="inline-block px-3 align-text-bottom min-w-[250px] text-left"
-              className="text-gray-100"
-              text={["Google", "Meta", "Netflix", "Amazon", "Apple", "Tesla", "Nvidia", "Stripe", "Airbnb"]}
-              duration={3000}
-              y={50}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            />  <br/> offer with AI interviews
-          </h1>
-          <p className="text-xl text-[hsl(0,0%,70%)] max-w-2xl">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-orange-400 to-purple-400 text-transparent bg-clip-text leading-tight">
+          <span className="block">Practice Thinking <em>Out Loud </em> </span>
+          {/* <span className="block text-3xl md:text-5xl font-semibold text-[hsl(0,0%,85%)]">
+            Turn any LeetCode problem <br /> into a mock interview
+          </span> */}
+        </h1>
+        {/* <div className="flex items-center justify-center min-h-screen w-full">
+          <TypingText 
+            text={["Beautiful components for React", "Built with shadcn/ui", "Ship faster than ever!"]}
+            typingSpeed={75}
+            pauseDuration={1500}
+            showCursor={true}
+            className="text-4xl font-bold text-center max-w-2xl"
+            cursorClassName="h-12"
+            textColors={['#3b82f6', '#8b5cf6', '#06b6d4']}
+            variableSpeed={{ min: 50, max: 120 }}
+          />
+        </div> */}
+          {/* <p className="text-xl text-[hsl(0,0%,70%)] max-w-2xl">
             ELeet's interview AI platform provides automated interview practice, real-time feedback, and personalized coaching for technical interviews.
+          </p> */}
+          <p className="text-xl text-[hsl(0,0%,70%)] max-w-2xl">
+            Turn any LeetCode problem into a mock interview instantly, with real-time feedback and personalized coaching
           </p>
           <div className="flex gap-4">
             <a 
@@ -66,13 +74,18 @@ export default function Home() {
                 Get The Extension
               </Button>
             </a>
-            <Button
-              variant="ghost"
-              className="text-[hsl(0,0%,95%)] hover:bg-[hsl(0,0%,95%)]"
-              onClick={() => window.open('https://discord.gg/gEnunRG3uF', '_blank', 'noopener noreferrer')}
+            <a 
+                href="https://discord.gg/gEnunRG3uF" 
+                target="_blank" 
+                rel="noopener noreferrer"
             >
-              Join Our Discord
-            </Button>
+                <Button
+                variant="ghost"
+                className="text-[hsl(0,0%,95%)] hover:bg-[hsl(0,0%,95%)]"
+                > 
+                Join Our Discord
+              </Button>
+            </a>
           </div>
         </div>
       </div>
