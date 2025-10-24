@@ -151,7 +151,7 @@ export default function ConversationTranscript() {
           className={`pr-2 transition-all duration-300 ${
             isFinished
               ? "min-h-0 flex-1 overflow-y-auto no-scrollbar"
-              : "h-[160px] overflow-hidden"
+              : "h-[70%] overflow-hidden"
           }`}
           aria-live="polite"
           role="log"
