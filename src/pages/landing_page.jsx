@@ -1,19 +1,13 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-} from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton} from "@clerk/clerk-react";
 import ConversationChat from "@/components/ui/conversation-chat";
 import { PencilLine, TerminalWindow } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+    <div className="min-h-screen bg-black text-white flex flex-col pb-20">
       {/* Navbar/Header */}
       <header className="w-full py-4 px-6 border-b border-[hsl(0,0%,10%)]">
         <div className="container mx-auto flex justify-between items-center">
@@ -82,7 +76,7 @@ export default function Home() {
         <div className="flex justify-center pb-12">
           <motion.div
             whileHover={{
-              scale: 1.06,
+              scale: 1.01,
               boxShadow: "0 0 50px rgba(90,0,92,0.5)",
             }}
             transition={{
@@ -149,7 +143,16 @@ export default function Home() {
         {/* Small Feature Highlight */}
         <div className="mx-auto w-[60%] gap-10 text-[hsl(0,0%,95%)] rounded-2xl shadow-lg flex overflow-hidden">
           {/* Personalized Feedback box */}
-          <div className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 shadow">
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 50px rgba(90,0,92,0.4)",
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 40,
+            }} className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 shadow">
             <div className="flex justify-center mb-4 bg-gray">
               <PencilLine size={108} weight="duotone"/>
             </div>
@@ -157,48 +160,56 @@ export default function Home() {
               Personalized Feedback
             </h3>
             <div className="flex flex-col gap-3 mt-6">
-              <div className="bg-[hsl(0,0%,10%)] rounded-lg p-3">
-                <p className="text-[hsl(0,0%,70%)] text-sm">
-                  Targeted suggestions on problem approach and trade.
+              <div className="bg-[hsl(270,95%,75%)] rounded-lg p-3">
+                <p className="text-black text-sm">
+                  Overall score based on performance
                 </p>
               </div>
-              <div className="bg-[hsl(0,0%,10%)] rounded-lg p-3">
-                <p className="text-[hsl(0,0%,70%)] text-sm">
-                  Clarity & communication tips to improve explanations.
+              <div className="bg-[hsl(270,95%,78%)] rounded-lg p-3">
+                <p className="text-black text-sm">
+                  Detailed feedback on code efficiency and style
                 </p>
               </div>
-              <div className="bg-[hsl(0,0%,10%)] rounded-lg p-3">
-                <p className="text-[hsl(0,0%,70%)] text-sm">
-                  Actionable next steps and practice prompts tailored to.
+              <div className="bg-[hsl(270,95%,81%)] rounded-lg p-3">
+                <p className="text-black text-sm">
+                  Clarity & communication tips to improve explanations
                 </p>
               </div>
             </div>
-          </div>
-          {/* Live Code Review box */}
-          <div className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 h-[30%] shadow">
+          </motion.div>
+            {/* Live Code Review box */}
+            <motion.div
+            whileHover={{
+              scale: 1.03,
+              boxShadow: "0 0 50px rgba(90,0,92,0.4)",
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 40,
+            }} className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 h-[30%] shadow">
             <div className="flex justify-center mb-4">
               <TerminalWindow size={108} weight="duotone" />
             </div>
             <h3 className="text-2xl font-semibold mb-2">Live Code Review</h3>
             <div className="flex flex-col gap-3 mt-6">
-              <div className="bg-[hsl(0,0%,10%)] rounded-lg p-3">
-                <p className="text-[hsl(0,0%,70%)] text-sm">
-                  Specific, actionable suggestions on algorithm choices
+              <div className="bg-[hsl(270,95%,75%)] rounded-lg p-3">
+                <p className="text-black text-sm">
+                  Reads code like a paired programmer
                 </p>
               </div>
-              <div className="bg-[hsl(0,0%,10%)] rounded-lg p-3">
-                <p className="text-[hsl(0,0%,70%)] text-sm">
-                  Communication tips to verbalize
-                  reasoning
+              <div className="bg-[hsl(270,95%,78%)] rounded-lg p-3">
+                <p className="text-black text-sm">
+                  Analyzes time complexities, variable names, and structure
                 </p>
               </div>
-              <div className="bg-[hsl(0,0%,10%)] rounded-lg p-3">
-                <p className="text-[hsl(0,0%,70%)] text-sm">
-                  A personalized practice plan to strack progress.
+              <div className="bg-[hsl(270,95%,81%)] rounded-lg p-3">
+                <p className="text-black text-sm">
+                  Gives real-time suggestions to improve code
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
