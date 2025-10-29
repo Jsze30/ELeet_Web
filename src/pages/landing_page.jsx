@@ -154,7 +154,7 @@ export default function Home() {
               damping: 40,
             }} className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 shadow">
             <div className="flex justify-center mb-4 bg-gray">
-              <PencilLine size={108} weight="duotone"/>
+              <PencilLine size={75} weight="duotone"/>
             </div>
             <h3 className="text-2xl font-semibold mb-2">
               Personalized Feedback
@@ -189,7 +189,7 @@ export default function Home() {
               damping: 40,
             }} className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 h-[30%] shadow">
             <div className="flex justify-center mb-4">
-              <TerminalWindow size={108} weight="duotone" />
+              <TerminalWindow size={75} weight="duotone" />
             </div>
             <h3 className="text-2xl font-semibold mb-2">Live Code Review</h3>
             <div className="flex flex-col gap-3 mt-6">
