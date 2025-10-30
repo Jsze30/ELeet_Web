@@ -1,15 +1,28 @@
+"use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton} from "@clerk/clerk-react";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/clerk-react";
 import ConversationChat from "@/components/ui/conversation-chat";
 import { PencilLine, TerminalWindow } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
+import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 
 export default function Home() {
   return (
+    // <div className="relative min-h-screen w-full overflow-hidden bg-neutral-950">
+
+    // </div>
+
     <div className="min-h-screen bg-black text-white flex flex-col pb-20">
       {/* Navbar/Header */}
-      <header className="w-full py-4 px-6 border-b border-[hsl(0,0%,10%)]">
+
+      <header className="relative w-full py-4 px-6 border-b border-[hsl(0,0%,10%)] z-50">
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-2xl text-white font-bold">ELeet</div>
 
@@ -37,7 +50,14 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <div className="flex flex-col items-center justify-center text-center space-y-8 my-12 py-12 min-h-[70vh]">
+      <div className="relative flex flex-col items-center justify-center text-center space-y-8 py-12 min-h-[70vh]">
+        <BackgroundRippleEffect
+          className="absolute inset-0 -z-10"
+          rows={8}
+          cols={27}
+          cellSize={56}
+        />
+
         <h1 className="text-7xl font-bold text-[hsl(0,0%,95%)]">
           Practice Thinking <em>Out Loud </em>
           {/* Turn any Leetcode Problem <br /> into a Mock Interview */}
@@ -152,9 +172,11 @@ export default function Home() {
               type: "spring",
               stiffness: 400,
               damping: 40,
-            }} className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 shadow">
+            }}
+            className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 shadow"
+          >
             <div className="flex justify-center mb-4 bg-gray">
-              <PencilLine size={75} weight="duotone"/>
+              <PencilLine size={75} weight="duotone" />
             </div>
             <h3 className="text-2xl font-semibold mb-2">
               Personalized Feedback
@@ -177,8 +199,8 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
-            {/* Live Code Review box */}
-            <motion.div
+          {/* Live Code Review box */}
+          <motion.div
             whileHover={{
               scale: 1.03,
               boxShadow: "0 0 50px rgba(90,0,92,0.4)",
@@ -187,7 +209,9 @@ export default function Home() {
               type: "spring",
               stiffness: 400,
               damping: 40,
-            }} className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 h-[30%] shadow">
+            }}
+            className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 h-[30%] shadow"
+          >
             <div className="flex justify-center mb-4">
               <TerminalWindow size={75} weight="duotone" />
             </div>

@@ -1,3 +1,5 @@
+@tailwind utilities;
+
 :root {
   /* Background colors */
   --bg-primary: hsl(0, 0%, 0%);
@@ -95,4 +97,16 @@ body {
 
 .text-secondary {
   color: var(--text-secondary);
+}
+
+@layer utilities {
+  @keyframes cell-ripple {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.4; }
+  }
+  /* Equivalent of --animate-cell-ripple token */
+  .animate-cell-ripple {
+    animation: cell-ripple var(--duration, 200ms) ease-out var(--delay, 0ms) 1;
+  }
 }
