@@ -51,6 +51,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <div className="relative flex flex-col items-center justify-center text-center space-y-8 py-12 min-h-[70vh]">
+        {/* Move the background behind everything */}
         <BackgroundRippleEffect
           className="absolute inset-0 -z-10"
           rows={8}
@@ -58,15 +59,17 @@ export default function Home() {
           cellSize={56}
         />
 
-        <h1 className="text-7xl font-bold text-[hsl(0,0%,95%)]">
+        {/* Add z-index to bring text + buttons above */}
+        <h1 className="relative z-10 text-7xl font-bold text-[hsl(0,0%,95%)]">
           Practice Thinking <em>Out Loud </em>
-          {/* Turn any Leetcode Problem <br /> into a Mock Interview */}
         </h1>
-        <p className="text-xl pt-2 text-[hsl(0,0%,70%)] max-w-2xl">
+
+        <p className="relative z-10 text-xl pt-2 text-[hsl(0,0%,70%)] max-w-2xl">
           Turn any LeetCode problem into a mock interview instantly, with
           real-time feedback and personalized coaching
         </p>
-        <div className="flex gap-4">
+
+        <div className="relative z-10 flex gap-4">
           <a
             href="https://chromewebstore.google.com/detail/eleet/hminpnlbphfcnbcfolmepecfkkhohpkd"
             target="_blank"
