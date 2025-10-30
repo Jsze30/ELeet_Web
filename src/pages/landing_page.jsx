@@ -12,6 +12,7 @@ import ConversationChat from "@/components/ui/conversation-chat";
 import { PencilLine, TerminalWindow } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -24,7 +25,14 @@ export default function Home() {
 
       <header className="relative w-full py-4 px-6 border-b border-[hsl(0,0%,10%)] z-50">
         <div className="container mx-auto flex justify-between items-center">
-          <div className="text-2xl text-white font-bold">ELeet</div>
+          <Link to="/" className="flex items-center gap-5">
+            <img
+              src="/ELeet_logo.png"
+              alt="ELeet logo"
+              className="h-8 w-8 md:h-9 md:w-9"
+            />
+            <span className="text-2xl text-white font-bold">ELeet</span>
+          </Link>
 
           <div className="flex items-center gap-2">
             <SignedOut>
