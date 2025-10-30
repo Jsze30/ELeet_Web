@@ -1,17 +1,38 @@
+"use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton} from "@clerk/clerk-react";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/clerk-react";
 import ConversationChat from "@/components/ui/conversation-chat";
 import { PencilLine, TerminalWindow } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
+import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
+    // <div className="relative min-h-screen w-full overflow-hidden bg-neutral-950">
+
+    // </div>
+
     <div className="min-h-screen bg-black text-white flex flex-col pb-20">
       {/* Navbar/Header */}
-      <header className="w-full py-4 px-6 border-b border-[hsl(0,0%,10%)]">
+
+      <header className="relative w-full py-4 px-6 border-b border-[hsl(0,0%,10%)] z-50">
         <div className="container mx-auto flex justify-between items-center">
-          <div className="text-2xl text-white font-bold">ELeet</div>
+          <Link to="/" className="flex items-center gap-5">
+            <img
+              src="/ELeet_logo.png"
+              alt="ELeet logo"
+              className="h-8 w-8 md:h-9 md:w-9"
+            />
+            <span className="text-2xl text-white font-bold">ELeet</span>
+          </Link>
 
           <div className="flex items-center gap-2">
             <SignedOut>
@@ -37,16 +58,26 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <div className="flex flex-col items-center justify-center text-center space-y-8 my-12 py-12 min-h-[70vh]">
-        <h1 className="text-7xl font-bold text-[hsl(0,0%,95%)]">
+      <div className="relative flex flex-col items-center justify-center text-center space-y-8 py-12 min-h-[70vh]">
+        {/* Move the background behind everything */}
+        <BackgroundRippleEffect
+          className="absolute inset-0 -z-10"
+          rows={8}
+          cols={27}
+          cellSize={56}
+        />
+
+        {/* Add z-index to bring text + buttons above */}
+        <h1 className="relative z-10 text-7xl font-bold text-[hsl(0,0%,95%)]">
           Practice Thinking <em>Out Loud </em>
-          {/* Turn any Leetcode Problem <br /> into a Mock Interview */}
         </h1>
-        <p className="text-xl pt-2 text-[hsl(0,0%,70%)] max-w-2xl">
+
+        <p className="relative z-10 text-xl pt-2 text-[hsl(0,0%,70%)] max-w-2xl">
           Turn any LeetCode problem into a mock interview instantly, with
           real-time feedback and personalized coaching
         </p>
-        <div className="flex gap-4">
+
+        <div className="relative z-10 flex gap-4">
           <a
             href="https://chromewebstore.google.com/detail/eleet/hminpnlbphfcnbcfolmepecfkkhohpkd"
             target="_blank"
@@ -152,9 +183,11 @@ export default function Home() {
               type: "spring",
               stiffness: 400,
               damping: 40,
-            }} className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 shadow">
+            }}
+            className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 shadow"
+          >
             <div className="flex justify-center mb-4 bg-gray">
-              <PencilLine size={108} weight="duotone"/>
+              <PencilLine size={75} weight="duotone" />
             </div>
             <h3 className="text-2xl font-semibold mb-2">
               Personalized Feedback
@@ -177,8 +210,8 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
-            {/* Live Code Review box */}
-            <motion.div
+          {/* Live Code Review box */}
+          <motion.div
             whileHover={{
               scale: 1.03,
               boxShadow: "0 0 50px rgba(90,0,92,0.4)",
@@ -187,9 +220,11 @@ export default function Home() {
               type: "spring",
               stiffness: 400,
               damping: 40,
-            }} className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 h-[30%] shadow">
+            }}
+            className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 h-[30%] shadow"
+          >
             <div className="flex justify-center mb-4">
-              <TerminalWindow size={108} weight="duotone" />
+              <TerminalWindow size={75} weight="duotone" />
             </div>
             <h3 className="text-2xl font-semibold mb-2">Live Code Review</h3>
             <div className="flex flex-col gap-3 mt-6">
