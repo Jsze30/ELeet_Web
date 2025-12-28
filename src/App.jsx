@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Landing from "./pages/landing_page";
+import Landing from "./pages/new_landing_page";
 import "./styles/App.css";
 import { ClerkProvider } from '@clerk/clerk-react'
 import { Analytics } from "@vercel/analytics/react"
