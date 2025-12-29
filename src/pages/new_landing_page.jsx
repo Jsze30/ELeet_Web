@@ -107,15 +107,16 @@ export default function NewLandingPage() {
             maxWidth: '1000px'
         }}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white/95">
-                Stop grinding LeetCode
+                10x Your LeetCode Prep
                 <br />
                 <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
                     Start performing.
                 </span>
             </h1>
             <p className="text-lg md:text-xl lg:text-1.5xl text-white/70 mb-10 max-w-2xl mx-auto">
-                Want to take your LeetCode prep to the next level?
-                Practice with a live AI interviewer anytime, on any problem
+                Practice with a live AI interviewer anytime, on any leetcode problem.
+                <br />
+                Make mistakes now. Nail the real technical interview.
             </p>
             <div className= "flex items-center justify-center gap-2">
                 <Button 
@@ -189,14 +190,15 @@ export default function NewLandingPage() {
             width: '100%',
             height: '100vh',
             // background: 'hsl(0,0%,8%)',
+            padding: '5vh'
         }}>
             <ContainerScroll
                 titleComponent={
                 <>
-                    <h2 className="text-3xl font-semibold text-white/95">
-                        The only true voice to voice AI interviewer that lives<br />
+                    <h2 className="text-3xl font-semibold text-white/95 m-4">
+                        your voice AI interviewer that lives in LeetCode and takes<br />
                         <span className="text-[4rem] font-bold mt-1 leading-none bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-                            Right inside LeetCode
+                            30 seconds to set up
                         </span>
                     </h2>
                 </>
@@ -227,7 +229,7 @@ export default function NewLandingPage() {
         }}>
             <div style={{ textAlign: 'start', maxWidth: '500px', flex: 1 }}>
                 <h2 className="text-4xl font-bold text-white/95 mb-4">
-                    Personalized feedback to turn you into <em>that</em> candidate
+                    Personalized feedback to turn you into the <em>top 1%</em> candidate
                 </h2>
                 <p className="text-lg md:text-xl text-white/70">
                     Become better than 99% of candidates with detailed feedback on your
