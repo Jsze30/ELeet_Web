@@ -188,7 +188,7 @@ export default function NewLandingPage() {
             position: 'absolute',
             top: '200vh',
             width: '100%',
-            height: '100vh',
+            // height: '100vh',
             // background: 'hsl(0,0%,8%)',
             padding: '5vh'
         }}>
