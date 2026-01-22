@@ -199,7 +199,7 @@ export default function NewLandingPage() {
           titleComponent={
             <>
               <h2 className="text-xl md:text-3xl font-semibold text-white/95 mb-2 md:mb-4">
-                your voice AI interviewer that lives in LeetCode and takes
+                Your voice AI interviewer that lives in LeetCode and takes
                 <br />
                 <span className="text-3xl md:text-[4rem] font-bold mt-1 leading-none bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
                   30 seconds to set up
