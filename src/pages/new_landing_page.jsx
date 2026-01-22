@@ -163,15 +163,8 @@ export default function NewLandingPage() {
 
       {/* Feature 1 - Structured for FAANG */}
       <div
+        className="absolute top-[105vh] w-full px-4 py-10 md:px-8 md:py-16 flex flex-col gap-6 md:gap-12 items-center"
         style={{
-          position: "absolute",
-          top: "105vh",
-          width: "100%",
-          padding: "4rem 2rem",
-          display: "flex",
-          flexDirection: "column",
-          gap: "3rem",
-          alignItems: "center",
           background: "hsl(0,0%,8%)",
         }}
       >
@@ -188,10 +181,9 @@ export default function NewLandingPage() {
 
         {/* Conversation Demo */}
         <div
+          className="w-[95%] md:w-[60%] rounded-3xl"
           style={{
             background: "black",
-            width: "60%",
-            borderRadius: "1.5rem",
             boxShadow: "0 0 40px rgba(255,165,0,0.3)",
           }}
         >
@@ -201,45 +193,35 @@ export default function NewLandingPage() {
 
       {/* Feature 2 - Built into Leetcode */}
       <div
-        style={{
-          position: "absolute",
-          top: "200vh",
-          width: "100%",
-          // height: '100vh',
-          // background: 'hsl(0,0%,8%)',
-          padding: "5vh",
-        }}
+        className="absolute w-full top-[230vh] md:top-[200vh] px-4 py-8 md:px-12 md:py-16"
       >
         <ContainerScroll
           titleComponent={
             <>
-              <h2 className="text-3xl font-semibold text-white/95 m-4">
+              <h2 className="text-xl md:text-3xl font-semibold text-white/95 mb-2 md:mb-4">
                 your voice AI interviewer that lives in LeetCode and takes
                 <br />
-                <span className="text-[4rem] font-bold mt-1 leading-none bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="text-3xl md:text-[4rem] font-bold mt-1 leading-none bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
                   30 seconds to set up
                 </span>
               </h2>
             </>
           }
         >
-          <img
-            src={`/Eleet_preview.jpg`}
-            alt="hero"
-            height={720}
-            width={1400}
-            className="mx-auto rounded-2xl object-cover h-full object-left-top"
-            draggable={false}
+          <video
+            src="/eleet-setup-demo-latest.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="mx-auto rounded-2xl object-cover h-full w-full object-left-top"
           />
         </ContainerScroll>
       </div>
       {/* Feature 3 - Live code reading */}
       {/* Feature 4 - Personalized feedback */}
       <div
-        className="absolute w-full px-4 py-16 md:px-24 md:py-16 flex flex-col md:flex-row gap-8 md:gap-16 items-center justify-center"
-        style={{
-          top: "310vh",
-        }}
+        className="absolute w-full px-4 py-16 md:px-24 md:py-16 flex flex-col md:flex-row gap-8 md:gap-16 items-center justify-center top-[310vh] md:top-[310vh]"
       >
         <div className="text-center md:text-start max-w-[500px] flex-1">
           <h2 className="text-3xl md:text-4xl font-bold text-white/95 mb-4">
@@ -310,15 +292,8 @@ export default function NewLandingPage() {
       {/* FAQ */}
       {/* Final CTA Section */}
       <div
+        className="absolute w-full p-8 md:p-16 flex flex-col gap-12 items-center top-[400vh] md:top-[400vh]"
         style={{
-          position: "absolute",
-          top: "400vh",
-          width: "100%",
-          padding: "4rem 2rem",
-          display: "flex",
-          flexDirection: "column",
-          gap: "3rem",
-          alignItems: "center",
           background: "hsl(0,0%,8%)",
         }}
       >
