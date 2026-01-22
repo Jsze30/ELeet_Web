@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Landing from "./pages/new_landing_page";
 import "./styles/App.css";
 import { ClerkProvider } from '@clerk/clerk-react'
