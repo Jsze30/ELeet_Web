@@ -114,7 +114,7 @@ export default function ConversationChat() {
   const roleLabelClass = (role) => (role === "ai" ? "text-blue-400" : "text-amber-400");
 
   return (
-    <div className="w-3/5 p-6 border-r border-neutral-800 space-y-4">
+    <div className="w-full p-6 space-y-4">
       <h2 className="text-lg font-semibold text-gray-300">Conversation</h2>
 
       {/* Chat container: fixed height + scrollable */}
@@ -136,7 +136,7 @@ export default function ConversationChat() {
               >
                 <div className={`max-w-[75%] px-4 py-2 rounded-2xl text-[0.95rem] shadow-sm ${bubbleClasses(m.role)}`}>
                   <span className={`block font-semibold mb-0.5 ${roleLabelClass(m.role)}`}>
-                    {m.role === "ai" ? "AI:" : "User:"}
+                    {m.role === "ai" ? "ELeet" : "You"}
                   </span>
                   {m.text}
                 </div>
@@ -153,7 +153,7 @@ export default function ConversationChat() {
                 className={`px-4 py-2 rounded-2xl max-w-[75%] text-[0.95rem] ${bubbleClasses(currentRole)}`}
               >
                 <span className={`block font-semibold mb-0.5 ${roleLabelClass(currentRole)}`}>
-                  {currentRole === "ai" ? "AI:" : "User:"}
+                  {currentRole === "ai" ? "ELeet" : "You"}
                 </span>
                 <TypingText text={typingText} />
                 <TypingDots />
