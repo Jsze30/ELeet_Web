@@ -1,252 +1,329 @@
-"use client";
-import React from "react";
-import { Button } from "@/components/ui/button";
+import Orb from "../components/Orb";
+import GlassSurface from "../components/GlassSurface";
+import { Button } from "../components/ui/button";
 import {
+  useClerk,
   SignedIn,
   SignedOut,
   SignInButton,
   SignUpButton,
   UserButton,
 } from "@clerk/clerk-react";
-import ConversationChat from "@/components/ui/conversation-chat";
-import { PencilLine, TerminalWindow } from "@phosphor-icons/react";
-import { motion } from "framer-motion";
-import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
-import { Link } from "react-router-dom";
+import { DiscordLogoIcon, CaretDownIcon } from "@phosphor-icons/react";
+import { ContainerScroll } from "../components/ui/container-scroll-animation";
+import ConversationChat from "../components/ui/conversation-chat copy";
 
-export default function Home() {
+export default function NewLandingPage() {
+  const { openWaitlist } = useClerk();
+
+  const handleJoinWaitlist = () => {
+    openWaitlist();
+  };
+
   return (
-    // <div className="relative min-h-screen w-full overflow-hidden bg-neutral-950">
-
-    // </div>
-
-    <div className="min-h-screen bg-black text-white flex flex-col pb-20">
-      {/* Navbar/Header */}
-
-      <header className="relative w-full py-4 px-6 border-b border-[hsl(0,0%,10%)] z-50">
-        <div className="container mx-auto flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-5">
-            <img
-              src="/ELeet_logo.png"
-              alt="ELeet logo"
-              className="h-8 w-8 md:h-9 md:w-9"
-            />
-            <span className="text-2xl text-white font-bold">ELeet</span>
-          </Link>
-
+    <div
+      style={{
+        width: "100%",
+        height: "105vh",
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <Orb
+        hoverIntensity={3.5}
+        rotateOnHover={true}
+        hue={620}
+        forceHoverState={false}
+        brightness={0.9}
+      />
+      <GlassSurface
+        style={{
+          position: "fixed",
+          top: "1.5rem",
+          zIndex: 100,
+        }}
+        className="!w-[92%] md:!w-[60%]"
+        width="60%"
+        height="8vh"
+        borderRadius={30}
+        backgroundOpacity={0.1}
+      >
+        <div
+          className="w-full h-full flex justify-between items-center px-4 py-2 md:px-6"
+        >
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+              className="flex items-center gap-2"
+            >
+              <img
+                src="/ELeet_logo.png"
+                alt="ELeet logo"
+                className="h-7 w-7 md:h-9 md:w-9"
+              />
+              <span className="text-xl md:text-2xl text-white/95 font-bold">ELeet</span>
+            </button>
+            <a href="/pricing">
+              <Button
+                variant="ghost"
+                className="text-white/95 hover:bg-white/10 hover:text-white/95 rounded-full text-sm md:text-base px-3 md:px-4"
+              >
+                Pricing
+              </Button>
+            </a>
+          </div>
+          <div className="flex items-center gap-1 md:gap-2">
             <SignedOut>
               <SignInButton>
                 <Button
                   variant="ghost"
-                  className="text-[hsl(0,0%,95%)] hover:bg-[hsl(0,0%,95%)]"
+                  className="text-white/95 hover:bg-white/10 hover:text-white/95 rounded-full text-sm md:text-base px-3 md:px-4"
                 >
                   Log In
                 </Button>
               </SignInButton>
               <SignUpButton>
-                <Button className="bg-purple-500 hover:bg-purple-600 text-black">
+                <Button
+                  variant="outline"
+                  className="border-white/20 bg-transparent backdrop-blur-md hover:bg-white/10 hover:text-white/95 rounded-full text-sm md:text-base px-3 md:px-4"
+                >
                   Sign Up
                 </Button>
               </SignUpButton>
             </SignedOut>
             <SignedIn>
-              <UserButton afterSignOutUrl="/" />
+              <UserButton />
             </SignedIn>
           </div>
         </div>
-      </header>
+      </GlassSurface>
 
       {/* Hero Section */}
-      <div className="relative flex flex-col items-center justify-center text-center space-y-8 py-12 min-h-[70vh]">
-        {/* Move the background behind everything */}
-        <BackgroundRippleEffect
-          className="absolute inset-0 -z-10"
-          rows={8}
-          cols={27}
-          cellSize={56}
-        />
-
-        {/* Add z-index to bring text + buttons above */}
-        <h1 className="relative z-10 text-7xl font-bold text-[hsl(0,0%,95%)]">
-          Practice Thinking <em>Out Loud </em>
+      <div
+        style={{
+          position: "absolute",
+          top: "55%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          textAlign: "center",
+          width: "90%",
+          maxWidth: "1000px",
+        }}
+      >
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white/95">
+          10x Your LeetCode Prep
+          <br />
+          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+            Start performing.
+          </span>
         </h1>
-
-        <p className="relative z-10 text-xl pt-2 text-[hsl(0,0%,70%)] max-w-2xl">
-          Turn any LeetCode problem into a mock interview instantly, with
-          real-time feedback and personalized coaching
+        <p className="text-lg md:text-xl lg:text-1.5xl text-white/70 mb-10 max-w-2xl mx-auto">
+          Practice with a live AI interviewer anytime, on any leetcode problem.
+          <br />
+          Make mistakes now. Nail the real technical interview.
         </p>
-
-        <div className="relative z-10 flex gap-4">
-          <a
-            href="https://chromewebstore.google.com/detail/eleet/hminpnlbphfcnbcfolmepecfkkhohpkd"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="flex items-center justify-center gap-2">
+          <Button
+            variant="outline"
+            className="border-white/30 bg-white/10 backdrop-blur-md hover:text-white/70 hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 text-base md:text-lg px-10 py-6 rounded-full font-semibold"
+            onClick={handleJoinWaitlist}
           >
-            <Button className="bg-purple-500 hover:bg-purple-600 text-black">
-              Get The Extension
-            </Button>
-          </a>
+            Join the waitlist
+          </Button>
           <a
             href="https://discord.gg/gEnunRG3uF"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button
-              variant="ghost"
-              className="text-[hsl(0,0%,95%)] hover:bg-[hsl(0,0%,95%)]"
-            >
-              Join Our Discord
-            </Button>
+            <DiscordLogoIcon size={32} weight="duotone" color="#626DEF" />
           </a>
         </div>
       </div>
+      {/* Learn More Section */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "8rem",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 100,
+          textAlign: "center",
+        }}
+      >
+        <button
+          className="flex flex-col items-center gap-1 text-white/60 hover:text-white/90 transition-colors cursor-pointer"
+          onClick={() => {
+            window.scrollBy({
+              top: 500,
+              behavior: "smooth",
+            });
+          }}
+        >
+          <span className="text-sm">Learn more</span>
+          <CaretDownIcon size={20} weight="bold" />
+        </button>
+      </div>
 
-      <div className="flex flex-col gap-20">
-        {/* Video Animation */}
-        <div className="flex justify-center pb-12">
-          <motion.div
-            whileHover={{
-              scale: 1.01,
-              boxShadow: "0 0 50px rgba(90,0,92,0.5)",
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 400,
-              damping: 40,
-            }}
-            className="max-w-[60%] rounded-lg overflow-hidden cursor-pointer"
-          >
-            <video autoPlay loop muted playsInline className="w-full h-auto">
-              <source src="/Eleet_landing_demo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </motion.div>
+      {/* Feature 1 - Structured for FAANG */}
+      <div
+        className="absolute top-[105vh] w-full px-4 py-10 md:px-8 md:py-16 flex flex-col gap-6 md:gap-12 items-center"
+        style={{
+          background: "hsl(0,0%,8%)",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <h2 className="text-4xl md:text-5xl font-bold text-white/95 mb-4">
+            Designed to mirror the FAANG experience
+          </h2>
+          <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+            Simulate a live technical interview with an AI that asks structured,{" "}
+            <br /> in-depth questions and follow ups just like a FAANG
+            interviewer.
+          </p>
         </div>
 
-        <motion.div
-          whileHover={{
-            scale: 1.1,
-            boxShadow: "0 0 50px rgba(90,0,92,0.4)",
+        {/* Conversation Demo */}
+        <div
+          className="w-[95%] md:w-[60%] rounded-3xl"
+          style={{
+            background: "black",
+            boxShadow: "0 0 40px rgba(255,165,0,0.3)",
           }}
-          transition={{
-            type: "spring",
-            stiffness: 400,
-            damping: 40,
-          }}
-          className="mx-auto max-w-[60%] bg-[hsl(0,0%,5%)] text-white rounded-2xl shadow-lg flex overflow-hidden"
         >
-          {/* Left Section (60%) - Conversation Transcript */}
           <ConversationChat />
-
-          {/* Right Section (40%) - Title + Description + Bullets */}
-          <div className="w-2/5 p-8 pr-4 pt-2 flex flex-col justify-center bg-[hsl(0,0%,10%)] text-left">
-            <h1 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-purple-400 text-transparent bg-clip-text">
-              Conversational Mock Technical Interviews Made{" "}
-              <em className="bg-gradient-to-r from-orange-400 to-orange-200 text-transparent bg-clip-text">
-                Easy
-              </em>
-            </h1>
-            <p className="text-gray-400 mb-4">
-              Turn any LeetCode problem into a realistic mock interview. Get
-              instant feedback and improve your communication skills.
-            </p>
-            <div className="list-disc text-gray-400 space-y-2 text-left text-sm">
-              <div className="bg-[hsl(270,95%,75%)] rounded-lg p-1">
-                <p className="text-black">
-                  Simulate live technical interviews anytime
-                </p>
-              </div>
-              <div className="bg-[hsl(270,95%,78%)] rounded-lg p-1">
-                <p className="text-black">
-                  Receive AI-powered feedback tailored to you
-                </p>
-              </div>
-              <div className="bg-[hsl(270,95%,81%)] rounded-lg p-1">
-                <p className="text-black">
-                  Build confidence and ace your next interview ⚡
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Small Feature Highlight */}
-        <div className="mx-auto w-[60%] gap-10 text-[hsl(0,0%,95%)] rounded-2xl shadow-lg flex overflow-hidden">
-          {/* Personalized Feedback box */}
-          <motion.div
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 50px rgba(90,0,92,0.4)",
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 400,
-              damping: 40,
-            }}
-            className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 shadow"
-          >
-            <div className="flex justify-center mb-4 bg-gray">
-              <PencilLine size={75} weight="duotone" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-2">
-              Personalized Feedback
-            </h3>
-            <div className="flex flex-col gap-3 mt-6">
-              <div className="bg-[hsl(270,95%,75%)] rounded-lg p-3">
-                <p className="text-black text-sm">
-                  Overall score based on performance
-                </p>
-              </div>
-              <div className="bg-[hsl(270,95%,78%)] rounded-lg p-3">
-                <p className="text-black text-sm">
-                  Detailed feedback on code efficiency and style
-                </p>
-              </div>
-              <div className="bg-[hsl(270,95%,81%)] rounded-lg p-3">
-                <p className="text-black text-sm">
-                  Clarity & communication tips to improve explanations
-                </p>
-              </div>
-            </div>
-          </motion.div>
-          {/* Live Code Review box */}
-          <motion.div
-            whileHover={{
-              scale: 1.03,
-              boxShadow: "0 0 50px rgba(90,0,92,0.4)",
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 400,
-              damping: 40,
-            }}
-            className="w-1/2 bg-[hsl(0,0%,5%)] rounded-2xl p-6 h-[30%] shadow"
-          >
-            <div className="flex justify-center mb-4">
-              <TerminalWindow size={75} weight="duotone" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-2">Live Code Review</h3>
-            <div className="flex flex-col gap-3 mt-6">
-              <div className="bg-[hsl(270,95%,75%)] rounded-lg p-3">
-                <p className="text-black text-sm">
-                  Reads code like a paired programmer
-                </p>
-              </div>
-              <div className="bg-[hsl(270,95%,78%)] rounded-lg p-3">
-                <p className="text-black text-sm">
-                  Analyzes time complexities, variable names, and structure
-                </p>
-              </div>
-              <div className="bg-[hsl(270,95%,81%)] rounded-lg p-3">
-                <p className="text-black text-sm">
-                  Gives real-time suggestions to improve code
-                </p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
+
+      {/* Feature 2 - Built into Leetcode */}
+      <div
+        className="absolute w-full top-[230vh] md:top-[200vh] px-4 py-8 md:px-12 md:py-16"
+      >
+        <ContainerScroll
+          titleComponent={
+            <>
+              <h2 className="text-xl md:text-3xl font-semibold text-white/95 mb-2 md:mb-4">
+                Your voice AI interviewer that lives in LeetCode and takes
+                <br />
+                <span className="text-3xl md:text-[4rem] font-bold mt-1 leading-none bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                  30 seconds to set up
+                </span>
+              </h2>
+            </>
+          }
+        >
+          <video
+            src="/eleet-setup-demo-latest.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="mx-auto rounded-2xl object-cover h-full w-full object-left-top"
+          />
+        </ContainerScroll>
+      </div>
+      {/* Feature 3 - Live code reading */}
+      {/* Feature 4 - Personalized feedback */}
+      <div
+        className="absolute w-full px-4 py-16 md:px-24 md:py-16 flex flex-col md:flex-row gap-8 md:gap-16 items-center justify-center top-[310vh] md:top-[310vh]"
+      >
+        <div className="text-center md:text-start max-w-[500px] flex-1">
+          <h2 className="text-3xl md:text-4xl font-bold text-white/95 mb-4">
+            Personalized feedback to turn you into the <em>top 1%</em> candidate
+          </h2>
+          <p className="text-base md:text-xl text-white/70">
+            Become better than 99% of candidates with detailed feedback on your
+            performance, including problem-solving skills, communication, and
+            code efficiency.
+          </p>
+        </div>
+
+        {/* Feedback report mock */}
+        <div
+          className="w-full max-w-[400px] md:w-[400px] flex-1 rounded-3xl p-6 md:p-8"
+          style={{
+            background: "black",
+            boxShadow: "0 0 40px rgba(255,165,0,0.3)",
+          }}
+        >
+          <div
+            style={{
+              borderBottom: "1px solid rgba(255,165,0,0.2)",
+              paddingBottom: "1rem",
+              marginBottom: "1rem",
+            }}
+          >
+            <h3 className="text-xl md:text-2xl font-bold text-white/95 mb-2">
+              Interview Report
+            </h3>
+            <p className="text-white/60 text-sm md:text-base">LeetCode 1: Two Sum</p>
+          </div>
+          <div
+            className="grid grid-cols-2 gap-4 md:gap-8"
+          >
+            <div>
+              <p className="text-white/60 mb-1 text-sm md:text-base">Overall Score</p>
+              <p className="text-2xl md:text-3xl font-bold text-orange-400">8.5/10</p>
+            </div>
+            <div>
+              <p className="text-white/60 mb-1 text-sm md:text-base">Time Complexity</p>
+              <p className="text-orange-400 text-sm md:text-base">Optimal ✓</p>
+            </div>
+            <div>
+              <p className="text-white/60 mb-1 text-sm md:text-base">Space Complexity</p>
+              <p className="text-orange-400 text-sm md:text-base">O(n) - Good</p>
+            </div>
+            <div>
+              <p className="text-white/60 mb-1 text-sm md:text-base">Communication</p>
+              <p className="text-orange-400 text-sm md:text-base">Clear & concise</p>
+            </div>
+          </div>
+          <div
+            className="mt-6 md:mt-8 p-3 md:p-4 rounded-lg"
+            style={{
+              background: "rgba(255,165,0,0.05)",
+            }}
+          >
+            <p className="text-white/70 text-xs md:text-sm">
+              <strong className="text-orange-400">💡 Tip:</strong> Next time,
+              explain your approach before coding to save time
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* Testimonials */}
+      {/* Pricing */}
+      {/* FAQ */}
+      {/* Final CTA Section */}
+      <div
+        className="absolute w-full p-8 md:p-16 flex flex-col gap-12 items-center top-[400vh] md:top-[400vh]"
+        style={{
+          background: "hsl(0,0%,8%)",
+        }}
+      >
+        <div style={{ textAlign: "center", maxWidth: "800px" }}>
+          <h2 className="text-4xl md:text-3xl font-bold text-white/95 mb-6">
+            Want in? We're giving early access to a select few
+          </h2>
+          <p className="text-lg text-white/70 mb-8">
+            Level up your interview game today and beat 99% of candidates.
+          </p>
+          <Button
+            variant="outline"
+            className="border-white/30 bg-white/10 backdrop-blur-md hover:text-white/70 hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 text-base md:text-lg px-10 py-6 rounded-full font-semibold"
+            onClick={handleJoinWaitlist}
+          >
+            Join the waitlist
+          </Button>
+        </div>
+      </div>
+      {/* Footer */}
     </div>
   );
 }
