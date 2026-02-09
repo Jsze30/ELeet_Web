@@ -36,7 +36,7 @@ export default function NewLandingPage() {
       <style>{`
         @media (max-width: 767px) {
           .orb-wrapper {
-            transform: scale(1.25);
+            transform: scale(1.2);
             transform-origin: center center;
           }          body, html {
             overflow-x: hidden;
@@ -118,13 +118,18 @@ export default function NewLandingPage() {
             </SignedIn>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white/95 hover:text-white/70 transition-colors"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <List size={24} />}
-          </button>
+          {/* Mobile Menu - Hidden but with UserButton visible */}
+          <div className="md:hidden flex items-center gap-2">
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-white/95 hover:text-white/70 transition-colors"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <List size={24} />}
+            </button>
+          </div>
         </div>
       </GlassSurface>
 
@@ -166,10 +171,6 @@ export default function NewLandingPage() {
               </Button>
             </SignUpButton>
           </SignedOut>
-          <SignedIn>
-            <div className="border-t border-white/30"></div>
-            <UserButton />
-          </SignedIn>
         </div>
       )}
 
