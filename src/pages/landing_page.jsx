@@ -24,9 +24,9 @@ export default function NewLandingPage() {
 
   return (
     <div
+      className="landing-container"
       style={{
         width: "100%",
-        height: "105vh",
         position: "relative",
         display: "flex",
         flexDirection: "column",
@@ -34,7 +34,13 @@ export default function NewLandingPage() {
       }}
     >
       <style>{`
+        .landing-container {
+          height: 105vh;
+        }
         @media (max-width: 767px) {
+          .landing-container {
+            height: 100vh;
+          }
           .orb-wrapper {
             transform: scale(1.2);
             transform-origin: center center;
