@@ -2,7 +2,6 @@ import Orb from "../components/Orb";
 import GlassSurface from "../components/GlassSurface";
 import { Button } from "../components/ui/button";
 import {
-  useClerk,
   SignedIn,
   SignedOut,
   SignInButton,
@@ -15,12 +14,7 @@ import ConversationChat from "../components/ui/conversation-chat copy";
 import { useState } from "react";
 
 export default function NewLandingPage() {
-  const { openWaitlist } = useClerk();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleJoinWaitlist = () => {
-    openWaitlist();
-  };
 
   return (
     <div
@@ -98,7 +92,7 @@ export default function NewLandingPage() {
               </Button>
             </a>
           </div>
-          
+
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-1 md:gap-2">
             <SignedOut>
@@ -141,7 +135,7 @@ export default function NewLandingPage() {
 
       {/* Mobile Menu - Fixed positioning */}
       {mobileMenuOpen && (
-        <div 
+        <div
           className="md:hidden fixed top-24 left-0 right-0 z-50 mx-auto w-[92%] bg-black/80 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex flex-col gap-0"
           style={{
             left: '50%',
@@ -195,8 +189,8 @@ export default function NewLandingPage() {
         }}
       >
         <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 text-white/95 leading-tight">
-          10x Your <br className="md:hidden"/> LeetCode Prep
-          <br/>
+          10x Your <br className="md:hidden" /> LeetCode Prep
+          <br />
           <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
             Start performing.
           </span>
@@ -205,13 +199,18 @@ export default function NewLandingPage() {
           Practice with a live AI interviewer anytime, on any leetcode problem. Make mistakes now. Nail the real technical interview.
         </p>
         <div className="flex items-center justify-center gap-2 flex-wrap">
-          <Button
-            variant="outline"
-            className="border-white/30 bg-white/10 backdrop-blur-md hover:text-white/70 hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 text-sm md:text-lg px-6 md:px-10 py-4 md:py-6 rounded-full font-semibold"
-            onClick={handleJoinWaitlist}
+          <a
+            href="https://chromewebstore.google.com/detail/eleet/hminpnlbphfcnbcfolmepecfkkhohpkd"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Join the waitlist
-          </Button>
+            <Button
+              variant="outline"
+              className="border-white/30 bg-white/10 backdrop-blur-md hover:text-white/70 hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 text-sm md:text-lg px-6 md:px-10 py-4 md:py-6 rounded-full font-semibold"
+            >
+              Get the extension
+            </Button>
+          </a>
           <a
             href="https://discord.gg/gEnunRG3uF"
             target="_blank"
@@ -383,20 +382,22 @@ export default function NewLandingPage() {
           background: "hsl(0,0%,8%)",
         }}
       >
-        <div style={{ textAlign: "center", maxWidth: "800px" }}>
-          <h2 className="text-4xl md:text-3xl font-bold text-white/95 mb-6">
-            Want in? We're giving early access to a select few
-          </h2>
-          <p className="text-lg text-white/70 mb-8">
+        <div style={{ textAlign: "center", maxWidth: "600px" }}>
+          <h2 className="text-3xl md:text-3xl font-bold text-white/95 mb-6">
             Level up your interview game today and beat 99% of candidates.
-          </p>
-          <Button
-            variant="outline"
-            className="border-white/30 bg-white/10 backdrop-blur-md hover:text-white/70 hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 text-base md:text-lg px-10 py-6 rounded-full font-semibold"
-            onClick={handleJoinWaitlist}
+          </h2>
+          <a
+            href="https://chromewebstore.google.com/detail/eleet/hminpnlbphfcnbcfolmepecfkkhohpkd"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Join the waitlist
-          </Button>
+            <Button
+              variant="outline"
+              className="border-white/30 bg-white/10 backdrop-blur-md hover:text-white/70 hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 text-base md:text-lg px-10 py-6 rounded-full font-semibold"
+            >
+              Get the extension
+            </Button>
+          </a>
         </div>
       </div>
       {/* Footer */}
