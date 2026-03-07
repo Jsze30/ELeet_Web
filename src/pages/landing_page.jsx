@@ -2,6 +2,7 @@ import Orb from "../components/Orb";
 import GlassSurface from "../components/GlassSurface";
 import { Button } from "../components/ui/button";
 import {
+  useClerk,
   SignedIn,
   SignedOut,
   SignInButton,
@@ -14,7 +15,12 @@ import ConversationChat from "../components/ui/conversation-chat copy";
 import { useState } from "react";
 
 export default function NewLandingPage() {
+  const { openWaitlist } = useClerk();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleJoinWaitlist = () => {
+    openWaitlist();
+  };
 
   return (
     <div
@@ -199,18 +205,13 @@ export default function NewLandingPage() {
           Practice with a live AI interviewer anytime, on any leetcode problem. Make mistakes now. Nail the real technical interview.
         </p>
         <div className="flex items-center justify-center gap-2 flex-wrap">
-          <a
-            href="https://chromewebstore.google.com/detail/eleet/hminpnlbphfcnbcfolmepecfkkhohpkd"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Button
+            variant="outline"
+            className="border-white/30 bg-white/10 backdrop-blur-md hover:text-white/70 hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 text-sm md:text-lg px-6 md:px-10 py-4 md:py-6 rounded-full font-semibold"
+            onClick={handleJoinWaitlist}
           >
-            <Button
-              variant="outline"
-              className="border-white/30 bg-white/10 backdrop-blur-md hover:text-white/70 hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 text-sm md:text-lg px-6 md:px-10 py-4 md:py-6 rounded-full font-semibold"
-            >
-              Get the extension
-            </Button>
-          </a>
+            Join the waitlist
+          </Button>
           <a
             href="https://discord.gg/gEnunRG3uF"
             target="_blank"
@@ -386,18 +387,13 @@ export default function NewLandingPage() {
           <h2 className="text-3xl md:text-3xl font-bold text-white/95 mb-6">
             Level up your interview game today and beat 99% of candidates.
           </h2>
-          <a
-            href="https://chromewebstore.google.com/detail/eleet/hminpnlbphfcnbcfolmepecfkkhohpkd"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Button
+            variant="outline"
+            className="border-white/30 bg-white/10 backdrop-blur-md hover:text-white/70 hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 text-base md:text-lg px-10 py-6 rounded-full font-semibold"
+            onClick={handleJoinWaitlist}
           >
-            <Button
-              variant="outline"
-              className="border-white/30 bg-white/10 backdrop-blur-md hover:text-white/70 hover:bg-white/20 hover:border-white/50 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300 text-base md:text-lg px-10 py-6 rounded-full font-semibold"
-            >
-              Get the extension
-            </Button>
-          </a>
+            Join the waitlist
+          </Button>
         </div>
       </div>
       {/* Footer */}
